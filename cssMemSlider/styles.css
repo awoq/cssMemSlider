@@ -2,24 +2,8 @@
     margin: 0;
 	padding: 0;
     box-sizing: border-box;
-    -ms-overflow-style: none;
-    scrollbar-color: transparent transparent; /* thumb and track color */
-    scrollbar-width: 0px;
 }
 
-*::-webkit-scrollbar {
-    width: 0;
-  }
-  
-  *::-webkit-scrollbar-track {
-    background: transparent;
-  }
-  
-  *::-webkit-scrollbar-thumb {
-    background: transparent;
-    border: none;
-  }
-  
 body {
     background-color: #FFA500;
     font-size: 1.2rem;
@@ -40,28 +24,19 @@ body {
     box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
 }
 
-.slide-wrapper {
-    position: relative;
+.slide-item {
     margin: 5% auto 0 auto;
     width: 70%;
     height: auto;
     object-fit: cover;
     grid-area: slides;
-    display: flex;
-    overflow-x: scroll;
-    scroll-behavior: smooth;
-    scroll-snap-type: x mandatory;
 }
 
-.slide-item {
-    position: relative;
-    flex: 0 0 100%;
-    width: 100%;
-}
-
-.slide-item img{
+.slide-item img {
     width: 100%;
     height: 100%;
+    opacity: 0;
+    transition: 1s;
 }
 
 .pagination {
@@ -72,10 +47,9 @@ body {
     justify-content: flex-end;
 }
 
-.pagination input {
+ input {
     display: none;
 }
-
 
 .button {
     padding: 0.5em;
@@ -97,13 +71,27 @@ body {
     transition: all 0.3s;
 }
 
-input:checked ~ .dot {
-	background-color: #fff;
-}
+#slide1:checked ~  #first > img,
+#slide2:checked ~  #second > img,
+#slide3:checked ~  #third > img,
+#slide4:checked ~  #fourth > img  {
+    opacity: 1;
+    transition: all 1s;
+} 
 
-input:checked:hover ~ .dot {
-	background-color: #fff;
-}
+#slide1:checked ~  .pagination > #label1 > .dot,
+#slide2:checked ~  .pagination > #label2 > .dot,
+#slide3:checked ~  .pagination > #label3 > .dot,
+#slide4:checked ~  .pagination > #label4 > .dot  {
+    background-color: #fff;
+} 
+
+#slide1:checked ~  #first > img,
+#slide2:checked ~  #second > img,
+#slide3:checked ~  #third > img,
+#slide4:checked ~  #fourth > img  {
+    opacity: 1;
+} 
 
 .text { 
     grid-area: description;      
