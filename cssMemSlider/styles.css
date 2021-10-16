@@ -6,7 +6,6 @@
 
 body {
     background-color: #FFA500;
-    font-size: 1.2rem;
 }
 
 .slider-wrapper {
@@ -19,7 +18,6 @@ body {
     "slides slides"
     "description pagination";
     grid-template-columns: 2fr 1fr;
-    grid-template-rows: 4fr 1fr;
     grid-row-gap: 5%;
     background-color: #FFFFFF;
     border-radius: 1em;
@@ -45,6 +43,7 @@ body {
     animation-name: animaterightback;
     animation-duration: 0.5s;
     pointer-events: none;
+    user-select: none;
 }
 
 @keyframes animateright {
@@ -56,7 +55,6 @@ body {
     from {right: 0} 
     to {right: 100%}
 }
-
 
 .pagination {
     grid-area: pagination;
@@ -106,6 +104,20 @@ body {
     background-color: #fff;
 } 
 
-.text { 
-    grid-area: description;      
+.text {
+    grid-area: description;
+    font-family: 'Courier New', Courier, monospace;
+    color: #333333;
+    opacity: 0;
+    transform: scale(0.7); 
+    transition: all 0.5s;     
 }
+
+#slide1:checked ~  #text1,
+#slide2:checked ~  #text2,
+#slide3:checked ~  #text3,
+#slide4:checked ~  #text4  {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s;
+} 
