@@ -11,25 +11,28 @@ body {
 
 .slider-wrapper {
     margin: 2% auto;
+    padding: 1%;
     width: 60%;
     height: max-content;
     display: grid;
     grid-template-areas: 
     "slides slides"
     "description pagination";
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 3fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 4fr 1fr;
     grid-row-gap: 5%;
     background-color: #FFFFFF;
+    border-radius: 1em;
     box-shadow: 1em 1em 1em rgba(0, 0, 0, 0.1);
 }
 
 .slide-item {
-    margin: 5% auto 0 auto;
-    width: 70%;
+    width: 100%;
     height: auto;
-    object-fit: cover;
+    object-fit: contain;
+    overflow: hidden;
     grid-area: slides;
+    border-radius: 1rem;
 }
 
 .slide-item img {
@@ -40,7 +43,6 @@ body {
 }
 
 .pagination {
-    padding: 0 5%;
     grid-area: pagination;
     height: min-content;
     display: flex;
@@ -62,13 +64,13 @@ body {
     height: 0.7rem;
     border: 0.15rem solid #333333;
     border-radius: 50%;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 .button:hover>.dot{
     background-color: #FFA500;
     border: 0.15rem solid #FFA500;
-    transition: all 0.3s;
+    transition: all 0.5s;
 }
 
 #slide1:checked ~  #first > img,
