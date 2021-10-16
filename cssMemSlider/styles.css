@@ -65,7 +65,44 @@ body {
 }
 
 .pagination {
+    padding: 0 5%;
     grid-area: pagination;
+    height: min-content;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pagination input {
+    display: none;
+}
+
+
+.button {
+    padding: 0.5em;
+    cursor: pointer;
+}
+
+.dot {
+    background-color: #333333;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 0.15rem solid #333333;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.button:hover>.dot{
+    background-color: #FFA500;
+    border: 0.15rem solid #FFA500;
+    transition: all 0.3s;
+}
+
+input:checked ~ .dot {
+	background-color: #fff;
+}
+
+input:checked:hover ~ .dot {
+	background-color: #fff;
 }
 
 .text { 
